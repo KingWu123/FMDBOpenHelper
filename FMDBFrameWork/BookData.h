@@ -13,5 +13,6 @@
 @property (nonatomic, strong) NSString *bookId;
 @property (nonatomic, strong) NSString *bookName;
 @property (nonatomic, assign) int pageCount;
+@property (nonatomic, strong) NSString *bookDescription;
 
 @end

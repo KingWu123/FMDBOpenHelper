@@ -48,8 +48,9 @@
 
 
 
-
 /**
+ * Always use a FMDatabaseQueue to CURD operation, because it is thread safty;
+ *
  * Create and/or open a database that will be used for reading and writing.
  * The first time this is called, the database will be opened and
  * {@link #onCreate}, {@link #onUpgrade} and/or {@link #onOpen} will be
@@ -64,9 +65,10 @@
  * Database upgrade may take a long time, you
  * should not call this method from the application main thread.
  *
- *  @return the FMDatabase
+ *  @return the FMDatabaseQueue
  */
--  (FMDatabase *)getFMDatabase;
+-  (FMDatabaseQueue *)getFMDatabaseQueue;
+
 
 
 /**

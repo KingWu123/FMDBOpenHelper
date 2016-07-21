@@ -31,28 +31,15 @@
 }
 
 - (IBAction)insertData:(id)sender{
-    NSString *sql = [NSString stringWithFormat:
-                     @"create table %@ ("
-                     "_id integer primary key autoincrement, "
-                     "%@  text, "
-                     "%@  text, "
-                     "%@  integer "
-                     ");",
-                     BOOK_TABLE_NAME, BOOK_ID_COLUMN, BOOK_NAME_COLUMN, BOOK_PAGECOUNT_COLUMN];
     
-    NSString *docsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
-    docsPath = [docsPath stringByAppendingPathComponent:@"sqlite"];
-    if (![[NSFileManager defaultManager] fileExistsAtPath:docsPath]){
-        [[NSFileManager defaultManager] createDirectoryAtPath:docsPath withIntermediateDirectories:YES attributes:nil error:nil];
+    
+    [self.bookDao insertBookData:[self createBookData]];
+    
+    NSMutableArray *arr = [[NSMutableArray alloc]init];
+    for ( int i = 0 ; i<100 ; i++) {
+        [arr addObject:[self createBookData]];
     }
-    NSString * dbPath = [docsPath stringByAppendingPathComponent:@"aaa.db"];
-    
-    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:dbPath];
-    
-    [queue inDatabase:^(FMDatabase *db) {
-        BOOL result = [db executeUpdate:sql];
-        NSLog(@"result %d", result);
-    }];
+    [self.bookDao insertBookDataArr:arr];
 }
 
 - (IBAction)deleteData:(id)sender{
@@ -64,7 +51,18 @@
 }
 
 - (IBAction)selectData:(id)sender{
+    BookData *bookData = [self.bookDao selectBookDataById:@"bookid_10"];
     
+}
+
+- (BookData *)createBookData{
+    static int number = 0;
+    number++;
+    BookData *data = [[BookData alloc]init];
+    data.bookId = [NSString stringWithFormat:@"bookid_%d", number];
+    data.bookName = [NSString stringWithFormat:@"bookName_%d", number];
+    
+    return data;
 }
 
 @end

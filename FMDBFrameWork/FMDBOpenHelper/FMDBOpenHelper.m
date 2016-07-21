@@ -21,7 +21,6 @@
 @property (nonatomic, strong) NSString *dbPath;
 @property (nonatomic, strong) NSString *dbName;
 @property (nonatomic, assign) int newVersion;
-@property (nonatomic, strong) FMDatabase *database;
 @property (nonatomic, strong) FMDatabaseQueue *databaseQueue;
 
 @end
@@ -86,47 +85,38 @@
  * Database upgrade may take a long time, you
  * should not call this method from the application main thread.
  *
- *  @return the FMDatabase
+ *  @return the FMDatabaseQueue
  */
--  (FMDatabase *)getFMDatabase{
+-  (FMDatabaseQueue *)getFMDatabaseQueue{
     
     @synchronized (self) {
-        if (self.database != nil){
-            return self.database;
+        if (self.databaseQueue != nil){
+            return self.databaseQueue;
         }
         
-        self.database = [FMDatabase databaseWithPath:self.dbPath];
-        if (![self.database open]){
-            return nil;
-        }
-        //[self.database setShouldCacheStatements:YES];//create cache, improve search performence
+        //queue will open a FMDatabase inner.
+        self.databaseQueue = [FMDatabaseQueue databaseQueueWithPath:self.dbPath];
         
-        
-        [self onConfigure:self.database];
         
         int oldVersion = [self databaseVersion];
         
         if (oldVersion != self.newVersion){
-            // [self.database beginTransaction];
-            
+           
             if (oldVersion == 0){
-                [self onCreate:self.database];
+                [self onCreate:self.databaseQueue];
             }else{
                 if (oldVersion < self.newVersion){
-                    [self onUpgrade:self.database oldVersion:oldVersion newVersion:self.newVersion];
+                    [self onUpgrade:self.databaseQueue oldVersion:oldVersion newVersion:self.newVersion];
                 }else{
-                    [self onDowngrade:self.database oldVersion:oldVersion newVersion:self.newVersion];
+                    [self onDowngrade:self.databaseQueue oldVersion:oldVersion newVersion:self.newVersion];
                 }
             }
-            // [self.database commit];
+           
             
             [self setDatabseVersion:self.newVersion];
         }
         
-        [self onOpen:self.database];
-        
-        
-        return self.database;
+        return self.databaseQueue;
     }
 }
 
@@ -135,8 +125,8 @@
  */
 - (void)close{
     @synchronized (self) {
-        if (self.database != nil){
-            [self.database close];
+        if (self.databaseQueue != nil){
+            [self.databaseQueue close];
         }
     }
 }
@@ -145,22 +135,6 @@
 
 
 
-/**
- * Called when the database connection is being configured,
- *
- * This method is called before {@link #onCreate}, {@link #onUpgrade},
- * {@link #onDowngrade}, or {@link #onOpen} are called.  It should not modify
- * the database except to configure the database connection as required.
-   
- * This method should only call methods that configure the parameters of the
- * database connection
- *
- *  @param db the FMDatabase
- */
-- (void)onConfigure:(FMDatabase *)db{
-    
-}
-
 
 /**
  * Called when th database is created for the first time. This is where the
@@ -168,9 +142,9 @@
  *
  * subclass must implement it
  *
- *  @param db the FMDatabase
+ *  @param dbQueue the FMDatabaseQueue
  */
-- (void)onCreate:(FMDatabase *)db{
+- (void)onCreate:(FMDatabaseQueue *)dbQueue{
     mustOverride(@"FMDBOpenHelper onCreate");
 }
 
@@ -190,11 +164,11 @@
  *
  * subclass must implement it
  *
- *  @param db         the FMDatabase
+ *  @param dbQueue    the FMDatabaseQueue
  *  @param oldVersion the old version
  *  @param newVersion the new version
  */
-- (void)onUpgrade:(FMDatabase*)db  oldVersion:(int)oldVersion newVersion:(int)newVersion{
+- (void)onUpgrade:(FMDatabaseQueue*)dbQueue  oldVersion:(int)oldVersion newVersion:(int)newVersion{
    mustOverride(@"FMDBOpenHelper onUpgrade");
 }
 
@@ -209,11 +183,11 @@
  * This method executes within a transaction.  If an exception is thrown, all changes
   * will automatically be rolled back.
  *
- *  @param db         the FMDatabase
+ *  @param dbQueue    the FMDatabase
  *  @param oldVersion thd old version
  *  @param newVersion the new version
  */
-- (void)onDowngrade:(FMDatabase*)db  oldVersion:(int)oldVersion newVersion:(int)newVersion{
+- (void)onDowngrade:(FMDatabaseQueue*)dbQueue  oldVersion:(int)oldVersion newVersion:(int)newVersion{
     
     @throw [NSException exceptionWithName:NSInvalidArgumentException
                                 reason:[NSString stringWithFormat:@"Can't downgrade database from version %d to %d", oldVersion, newVersion]
@@ -221,40 +195,17 @@
 }
 
 
-
-
-/**
- * Called when the database has been opened.  
-   
- * This method is called after the database connection has been configured
- * and after the database schema has been created, upgraded or downgraded as necessary.
- * If the database connection must be configured in some way before the schema
- * is created, upgraded, or downgraded, do it in {@link #onConfigure} instead.
- * </p>
-  *
-
- *
- *  @param db The FMDatabase.
- */
-- (void)onOpen:(FMDatabase*)db{
-}
-
-
-
 #pragma mark - private method
 
 - (int)databaseVersion{
+    
     NSDictionary *dbVersionDc = [[NSUserDefaults standardUserDefaults] objectForKey:@"readerDBVersion"];
     int version = [[dbVersionDc objectForKey:self.dbName] intValue];
     return version;
 }
 
 - (void)setDatabseVersion:(int)version{
-    NSMutableDictionary *dbVersionDc = [[NSUserDefaults standardUserDefaults] objectForKey:@"readerDBVersion"];
-    
-    if (dbVersionDc == nil){
-        dbVersionDc = [[NSMutableDictionary alloc]init];
-    }
+    NSMutableDictionary *dbVersionDc = [[NSMutableDictionary alloc]initWithDictionary: [[NSUserDefaults standardUserDefaults] objectForKey:@"readerDBVersion"]];
     
     [dbVersionDc setObject:@(version) forKey:self.dbName];
     

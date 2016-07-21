@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "BookData.h"
 
 static const NSString *const BOOK_TABLE_NAME = @"bookTable";
 
 static const NSString *const BOOK_ID_COLUMN = @"bookId";
 static const NSString *const BOOK_NAME_COLUMN = @"bookName";
 static const NSString *const BOOK_PAGECOUNT_COLUMN = @"bookPageCount";
+static const NSString *const BOOK_DESCRIPTION_COLUMN = @"bookDescription"; //db version 3 add
 
 
 
@@ -25,4 +26,10 @@ static const NSString *const BOOK_PAGECOUNT_COLUMN = @"bookPageCount";
 
 - (instancetype)initWithOpenHelper:(FMDBOpenHelper *)helper;
 
+
+- (void)insertBookData:(BookData *)bookData;
+
+- (void)insertBookDataArr:(NSArray<BookData *> *)bookDataArr;
+
+- (BookData *)selectBookDataById:(NSString *)bookId;
 @end
