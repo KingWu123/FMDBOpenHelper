@@ -1,0 +1,14 @@
+PODS:
+  - FMDB (2.6):
+    - FMDB/standard (= 2.6)
+  - FMDB/standard (2.6)
+
+DEPENDENCIES:
+  - FMDB (~> 2.6)
+
+SPEC CHECKSUMS:
+  FMDB: c1968bab3ab0aed38f66cb778ae1e7fa9a652b6e
+
+PODFILE CHECKSUM: 440155a064dc01e68a2664c4bd02fa2f80012d2a
+
+COCOAPODS: 1.0.1
