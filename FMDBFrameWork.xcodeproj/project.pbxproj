@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C543F44C3E3C1792951F9E7 /* libPods-FMDBFrameWork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEF551ED74EC1975B41944FA /* libPods-FMDBFrameWork.a */; };
 		7580950F1D4066D800C0F9A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7580950E1D4066D800C0F9A3 /* main.m */; };
 		758095121D4066D800C0F9A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 758095111D4066D800C0F9A3 /* AppDelegate.m */; };
 		758095151D4066D800C0F9A3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 758095141D4066D800C0F9A3 /* ViewController.m */; };
@@ -15,6 +16,10 @@
 		7580951D1D4066D800C0F9A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7580951B1D4066D800C0F9A3 /* LaunchScreen.storyboard */; };
 		758095281D4066D800C0F9A3 /* FMDBFrameWorkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 758095271D4066D800C0F9A3 /* FMDBFrameWorkTests.m */; };
 		758095331D4066D800C0F9A3 /* FMDBFrameWorkUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 758095321D4066D800C0F9A3 /* FMDBFrameWorkUITests.m */; };
+		758095441D406E7700C0F9A3 /* FMDBOpenHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 758095431D406E7700C0F9A3 /* FMDBOpenHelper.m */; };
+		758095471D40871B00C0F9A3 /* ReaderDBOpenHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 758095461D40871B00C0F9A3 /* ReaderDBOpenHelper.m */; };
+		7580954A1D409AD100C0F9A3 /* BookDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 758095491D409AD100C0F9A3 /* BookDAO.m */; };
+		7580954D1D409AE500C0F9A3 /* BookData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7580954C1D409AE500C0F9A3 /* BookData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0280126D56F01C69F7D31B63 /* Pods-FMDBFrameWork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FMDBFrameWork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FMDBFrameWork/Pods-FMDBFrameWork.debug.xcconfig"; sourceTree = "<group>"; };
+		1397BC7733B0133879DC0CDA /* Pods-FMDBFrameWork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FMDBFrameWork.release.xcconfig"; path = "Pods/Target Support Files/Pods-FMDBFrameWork/Pods-FMDBFrameWork.release.xcconfig"; sourceTree = "<group>"; };
 		7580950A1D4066D800C0F9A3 /* FMDBFrameWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FMDBFrameWork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7580950E1D4066D800C0F9A3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		758095101D4066D800C0F9A3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +58,15 @@
 		7580952E1D4066D800C0F9A3 /* FMDBFrameWorkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FMDBFrameWorkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		758095321D4066D800C0F9A3 /* FMDBFrameWorkUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMDBFrameWorkUITests.m; sourceTree = "<group>"; };
 		758095341D4066D800C0F9A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		758095421D406E7700C0F9A3 /* FMDBOpenHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDBOpenHelper.h; sourceTree = "<group>"; };
+		758095431D406E7700C0F9A3 /* FMDBOpenHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDBOpenHelper.m; sourceTree = "<group>"; };
+		758095451D40871B00C0F9A3 /* ReaderDBOpenHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderDBOpenHelper.h; sourceTree = "<group>"; };
+		758095461D40871B00C0F9A3 /* ReaderDBOpenHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderDBOpenHelper.m; sourceTree = "<group>"; };
+		758095481D409AD100C0F9A3 /* BookDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookDAO.h; sourceTree = "<group>"; };
+		758095491D409AD100C0F9A3 /* BookDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookDAO.m; sourceTree = "<group>"; };
+		7580954B1D409AE500C0F9A3 /* BookData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookData.h; sourceTree = "<group>"; };
+		7580954C1D409AE500C0F9A3 /* BookData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookData.m; sourceTree = "<group>"; };
+		FEF551ED74EC1975B41944FA /* libPods-FMDBFrameWork.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FMDBFrameWork.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C543F44C3E3C1792951F9E7 /* libPods-FMDBFrameWork.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +95,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		353802DAF29E9206BD229045 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0280126D56F01C69F7D31B63 /* Pods-FMDBFrameWork.debug.xcconfig */,
+				1397BC7733B0133879DC0CDA /* Pods-FMDBFrameWork.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		66F495B7CEE98D64FCF103D8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FEF551ED74EC1975B41944FA /* libPods-FMDBFrameWork.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		758095011D4066D800C0F9A3 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +119,8 @@
 				758095261D4066D800C0F9A3 /* FMDBFrameWorkTests */,
 				758095311D4066D800C0F9A3 /* FMDBFrameWorkUITests */,
 				7580950B1D4066D800C0F9A3 /* Products */,
+				353802DAF29E9206BD229045 /* Pods */,
+				66F495B7CEE98D64FCF103D8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +137,7 @@
 		7580950C1D4066D800C0F9A3 /* FMDBFrameWork */ = {
 			isa = PBXGroup;
 			children = (
+				758095411D406E6200C0F9A3 /* FMDBOpenHelper */,
 				758095101D4066D800C0F9A3 /* AppDelegate.h */,
 				758095111D4066D800C0F9A3 /* AppDelegate.m */,
 				758095131D4066D800C0F9A3 /* ViewController.h */,
@@ -110,6 +147,12 @@
 				7580951B1D4066D800C0F9A3 /* LaunchScreen.storyboard */,
 				7580951E1D4066D800C0F9A3 /* Info.plist */,
 				7580950D1D4066D800C0F9A3 /* Supporting Files */,
+				758095451D40871B00C0F9A3 /* ReaderDBOpenHelper.h */,
+				758095461D40871B00C0F9A3 /* ReaderDBOpenHelper.m */,
+				758095481D409AD100C0F9A3 /* BookDAO.h */,
+				758095491D409AD100C0F9A3 /* BookDAO.m */,
+				7580954B1D409AE500C0F9A3 /* BookData.h */,
+				7580954C1D409AE500C0F9A3 /* BookData.m */,
 			);
 			path = FMDBFrameWork;
 			sourceTree = "<group>";
@@ -140,6 +183,15 @@
 			path = FMDBFrameWorkUITests;
 			sourceTree = "<group>";
 		};
+		758095411D406E6200C0F9A3 /* FMDBOpenHelper */ = {
+			isa = PBXGroup;
+			children = (
+				758095421D406E7700C0F9A3 /* FMDBOpenHelper.h */,
+				758095431D406E7700C0F9A3 /* FMDBOpenHelper.m */,
+			);
+			path = FMDBOpenHelper;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +199,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 758095371D4066D800C0F9A3 /* Build configuration list for PBXNativeTarget "FMDBFrameWork" */;
 			buildPhases = (
+				5644ABB62E0F6DB7B5336170 /* [CP] Check Pods Manifest.lock */,
 				758095061D4066D800C0F9A3 /* Sources */,
 				758095071D4066D800C0F9A3 /* Frameworks */,
 				758095081D4066D800C0F9A3 /* Resources */,
+				5EA4CAD5EC4022E7F78CBB90 /* [CP] Embed Pods Frameworks */,
+				1679424D613E1411F535F8BF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -268,6 +323,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1679424D613E1411F535F8BF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FMDBFrameWork/Pods-FMDBFrameWork-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5644ABB62E0F6DB7B5336170 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5EA4CAD5EC4022E7F78CBB90 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FMDBFrameWork/Pods-FMDBFrameWork-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		758095061D4066D800C0F9A3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -275,7 +378,11 @@
 			files = (
 				758095151D4066D800C0F9A3 /* ViewController.m in Sources */,
 				758095121D4066D800C0F9A3 /* AppDelegate.m in Sources */,
+				758095441D406E7700C0F9A3 /* FMDBOpenHelper.m in Sources */,
+				7580954A1D409AD100C0F9A3 /* BookDAO.m in Sources */,
 				7580950F1D4066D800C0F9A3 /* main.m in Sources */,
+				7580954D1D409AE500C0F9A3 /* BookData.m in Sources */,
+				758095471D40871B00C0F9A3 /* ReaderDBOpenHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +523,7 @@
 		};
 		758095381D4066D800C0F9A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0280126D56F01C69F7D31B63 /* Pods-FMDBFrameWork.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FMDBFrameWork/Info.plist;
@@ -427,6 +535,7 @@
 		};
 		758095391D4066D800C0F9A3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1397BC7733B0133879DC0CDA /* Pods-FMDBFrameWork.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FMDBFrameWork/Info.plist;
@@ -501,6 +610,7 @@
 				758095391D4066D800C0F9A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7580953A1D4066D800C0F9A3 /* Build configuration list for PBXNativeTarget "FMDBFrameWorkTests" */ = {
 			isa = XCConfigurationList;
@@ -509,6 +619,7 @@
 				7580953C1D4066D800C0F9A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7580953D1D4066D800C0F9A3 /* Build configuration list for PBXNativeTarget "FMDBFrameWorkUITests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +628,7 @@
 				7580953F1D4066D800C0F9A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
