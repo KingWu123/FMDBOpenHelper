@@ -199,18 +199,33 @@
 
 - (int)databaseVersion{
     
-    NSDictionary *dbVersionDc = [[NSUserDefaults standardUserDefaults] objectForKey:@"readerDBVersion"];
-    int version = [[dbVersionDc objectForKey:self.dbName] intValue];
+    __block int version;
+    
+    [self.databaseQueue inDatabase:^(FMDatabase *db) {
+       
+         version = [db userVersion];
+    }];
+    
     return version;
+    
+    
+//    NSDictionary *dbVersionDc = [[NSUserDefaults standardUserDefaults] objectForKey:@"readerDBVersion"];
+//    int version = [[dbVersionDc objectForKey:self.dbName] intValue];
+//    return version;
 }
 
 - (void)setDatabseVersion:(int)version{
-    NSMutableDictionary *dbVersionDc = [[NSMutableDictionary alloc]initWithDictionary: [[NSUserDefaults standardUserDefaults] objectForKey:@"readerDBVersion"]];
     
-    [dbVersionDc setObject:@(version) forKey:self.dbName];
+    [self.databaseQueue inDatabase:^(FMDatabase *db) {
+        [db setUserVersion:version];
+    }];
     
-    [[NSUserDefaults standardUserDefaults] setObject:dbVersionDc forKey:@"readerDBVersion"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+//    NSMutableDictionary *dbVersionDc = [[NSMutableDictionary alloc]initWithDictionary: [[NSUserDefaults standardUserDefaults] objectForKey:@"readerDBVersion"]];
+//    
+//    [dbVersionDc setObject:@(version) forKey:self.dbName];
+//    
+//    [[NSUserDefaults standardUserDefaults] setObject:dbVersionDc forKey:@"readerDBVersion"];
+//    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 

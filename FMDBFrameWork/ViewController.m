@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "BookDAO.h"
 #import "ReaderDBOpenHelper.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "Masonry.h"
 
 @interface ViewController ()
 
@@ -23,6 +25,8 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     self.bookDao  = [[BookDAO alloc]initWithOpenHelper:[ReaderDBOpenHelper sharedInstance]];
+    
+    UIImageView *imageView = [[UIImageView alloc]init];
 }
 
 - (void)didReceiveMemoryWarning {

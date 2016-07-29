@@ -2,13 +2,21 @@ PODS:
   - FMDB (2.6):
     - FMDB/standard (= 2.6)
   - FMDB/standard (2.6)
+  - Masonry (0.6.4)
+  - SDWebImage (3.7.4):
+    - SDWebImage/Core (= 3.7.4)
+  - SDWebImage/Core (3.7.4)
 
 DEPENDENCIES:
   - FMDB (~> 2.6)
+  - Masonry (~> 0.6.4)
+  - SDWebImage (~> 3.7.4)
 
 SPEC CHECKSUMS:
   FMDB: c1968bab3ab0aed38f66cb778ae1e7fa9a652b6e
+  Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
+  SDWebImage: 247edd7dd80dd6124197b0d6a17846fe9d1df968
 
-PODFILE CHECKSUM: 440155a064dc01e68a2664c4bd02fa2f80012d2a
+PODFILE CHECKSUM: bff352a53060b1002589d2a487a81ff10da48b66
 
 COCOAPODS: 1.0.1
